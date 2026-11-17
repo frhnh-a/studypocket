@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyPocket | Your little companion through law school</title>
+<style>
+:root {
+  --cream:#F8F5EF;
+  --sage:#DCE8DF;
+  --green:#A9C4B5;
+  --forest:#243B35;
+  --beige:#E9DCCB;
+  --white:#fffefa;
+  --muted:#69766f;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--forest);
+  font-family:Arial,sans-serif;
+  line-height:1.65;
+}
+header {
+  padding:20px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+  background:var(--white);
+  border-bottom:1px solid #e9e5dc;
+}
+.logo {
+  font-family:Georgia,serif;
+  font-size:26px;
+  font-weight:bold;
+}
+.logo span { color:#779989; }
+nav { display:flex; gap:18px; flex-wrap:wrap; }
+nav button {
+  border:0;
+  background:none;
+  color:var(--forest);
+  font-size:14px;
+  cursor:pointer;
+  padding:8px 2px;
+}
+nav button:hover { color:#779989; }
+main { max-width:1100px; margin:auto; padding:35px 6%; }
+section { display:none; }
+section.active { display:block; }
+.hero {
+  background:var(--sage);
+  padding:65px 9%;
+  border-radius:25px;
+  margin-bottom:35px;
+}
+.hero h1 {
+  font-family:Georgia,serif;
+  font-size:clamp(34px,6vw,57px);
+  line-height:1.12;
+  max-width:650px;
+  margin:10px 0;
+}
+.hero p { max-width:550px; color:#52665d; }
+.eyebrow {
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:12px;
+  font-weight:bold;
+  color:#718d7e;
+}
+h2,h3 { font-family:Georgia,serif; }
+h2 { font-size:30px; }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.card {
+  background:var(--white);
+  padding:23px;
+  border-radius:17px;
+  border:1px solid #ece7dc;
+  box-shadow:0 5px 18px #243b3508;
+}
+.card h3 { margin-top:5px; }
+.card p { color:var(--muted); font-size:14px; }
+button.primary, .action {
+  background:var(--forest);
+  color:white;
+  border:0;
+  padding:11px 18px;
+  border-radius:10px;
+  cursor:pointer;
+}
+button.primary:hover,.action:hover { background:#49685b; }
+input,select,textarea {
+  width:100%;
+  padding:12px;
+  border:1px solid #d9ded7;
+  border-radius:9px;
+  background:white;
+  color:var(--forest);
+  margin:6px 0 14px;
+  font:inherit;
+}
+label { font-size:14px; font-weight:bold; }
+.topic {
+  padding:17px;
+  background:var(--white);
+  border:1px solid #ece7dc;
+  border-radius:12px;
+  margin:12px 0;
+}
+.topic h3 { margin:0 0 5px; }
+.small { font-size:13px; color:var(--muted); }
+.tag {
+  display:inline-block;
+  padding:4px 9px;
+  background:var(--sage);
+  border-radius:20px;
+  font-size:11px;
+}
+.case-card {
+  background:var(--white);
+  padding:20px;
+  border-radius:13px;
+  margin:12px 0;
+  border-left:4px solid var(--green);
+}
+.quiz-option {
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:12px;
+  margin:8px 0;
+  background:white;
+  border:1px solid #d9ded7;
+  border-radius:9px;
+  cursor:pointer;
+  color:var(--forest);
+}
+.quiz-option:hover { background:var(--sage); }
+.task {
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:10px;
+  background:white;
+  border-radius:9px;
+  margin:8px 0;
+}
+.task input { width:auto; margin:0; }
+.task span { flex:1; }
+.task button {
+  border:0;
+  background:#f2e8df;
+  border-radius:7px;
+  padding:6px 10px;
+  cursor:pointer;
+}
+footer {
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+  font-size:13px;
+}
+hr { border:0; border-top:1px solid #e9e5dc; margin:25px 0; }
+@media(max-width:600px) {
+  header { padding:16px 5%; }
+  nav { gap:9px; }
+  nav button { font-size:12px; }
+  main { padding:25px 5%; }
+  .hero { padding:40px 8%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Study<span>Pocket.</span></div>
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('library')">Learning Library</button>
+    <button onclick="showPage('cases')">Casebook</button>
+    <button onclick="showPage('quiz')">Quiz Corner</button>
+    <button onclick="showPage('toolkit')">Student Toolkit</button>
+  </nav>
+</header>
+
+<main>
+
+<section id="home" class="active">
+  <div class="hero">
+    <div class="eyebrow">A little help goes a long way</div>
+    <h1>Your little companion through law school.</h1>
+    <p>Make learning law a little less overwhelming. Explore notes, understand important cases and test your knowledge — one topic at a time.</p>
+    <button class="primary" onclick="showPage('library')">Explore the library →</button>
+  </div>
+
+  <h2>Your study space</h2>
+  <div class="grid">
+    <div class="card">
+      <div>📚</div>
+      <h3>Learning Library</h3>
+      <p>Understand legal principles through organised study notes.</p>
+      <button class="primary" onclick="showPage('library')">Explore</button>
+    </div>
+    <div class="card">
+      <div>⚖️</div>
+      <h3>Casebook</h3>
+      <p>Review important cases and their legal principles.</p>
+      <button class="primary" onclick="showPage('cases')">Explore</button>
+    </div>
+    <div class="card">
+      <div>🧠</div>
+      <h3>Quiz Corner</h3>
+      <p>Check your understanding with practice questions.</p>
+      <button class="primary" onclick="showPage('quiz')">Practise</button>
+    </div>
+    <div class="card">
+      <div>🌱</div>
+      <h3>Student Toolkit</h3>
+      <p>Organise your revision and keep track of your progress.</p>
+      <button class="primary" onclick="showPage('toolkit')">Get organised</button>
+    </div>
+  </div>
+</section>
+
+<section id="library">
+  <div class="eyebrow">Explore and understand</div>
+  <h2>Learning Library</h2>
+  <p class="small">Your collection of notes, explanations and legal principles.</p>
+  <input id="searchNotes" placeholder="Search for a topic..." oninput="renderNotes()">
+  <select id="subjectFilter" onchange="renderNotes()">
+    <option value="all">All subjects</option>
+    <option value="Contract Law">Law of Contract</option>
+    <option value="Tort Law">Law of Tort</option>
+  </select>
+  <div id="notesList"></div>
+</section>
+
+<section id="cases">
+  <div class="eyebrow">Understand the judgments</div>
+  <h2>Casebook</h2>
+  <p class="small">A quick reference collection of important cases.</p>
+  <input id="searchCases" placeholder="Search for a case..." oninput="renderCases()">
+  <div id="casesList"></div>
+</section>
+
+<section id="quiz">
+  <div class="eyebrow">Test your understanding</div>
+  <h2>Quiz Corner</h2>
+  <p class="small">Try the questions and read the explanations after answering.</p>
+  <div id="quizList"></div>
+</section>
+
+<section id="toolkit">
+  <div class="eyebrow">Make studying manageable</div>
+  <h2>Student Toolkit</h2>
+
+  <div class="card">
+    <h3>📌 My Revision Checklist</h3>
+    <p>Create your own revision tasks. Your checklist is saved in this browser.</p>
+    <input id="taskInput" placeholder="e.g. Revise consideration in contract law">
+    <button class="primary" onclick="addTask()">Add task</button>
+    <div id="taskList"></div>
+    <hr>
+    <button class="primary" onclick="clearCompleted()">Clear completed</button>
+    <button class="primary" onclick="clearAllTasks()">Clear all</button>
+  </div>
+
+  <br>
+
+  <div class="card">
+    <h3>🎓 CGPA Calculator</h3>
+    <p class="small">Enter your course grade points and credit hours.</p>
+    <div id="gradeRows">
+      <div class="grade-row grid" style="grid-template-columns:2fr 1fr;gap:10px">
+        <input type="number" step="0.01" min="0" max="4" placeholder="Grade point">
+        <input type="number" step="1" min="1" placeholder="Credit hours">
+      </div>
+    </div>
+    <button class="primary" onclick="addGradeRow()">Add subject</button>
+    <button class="primary" onclick="calculateCGPA()">Calculate CGPA</button>
+    <h3 id="cgpaResult"></h3>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>StudyPocket.</strong><br>
+  Your little companion through law school.<br>
+  <span>For educational purposes only. Always verify legal materials against authoritative sources.</span>
+</footer>
+
+<script src="content.js"></script>
+<script>
+function showPage(id) {
+  document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function renderNotes() {
+  const list=document.getElementById('notesList');
+  if(!list) return;
+  const search=(document.getElementById('searchNotes').value||'').toLowerCase();
+  const subject=document.getElementById('subjectFilter').value;
+  const notes=window.STUDYPOCKET_CONTENT?.notes||[];
+  const filtered=notes.filter(n=>
+    (subject==='all'||n.subject===subject) &&
+    (n.title+' '+n.description+' '+n.content+' '+n.subject).toLowerCase().includes(search)
+  );
+  list.innerHTML=filtered.length ? filtered.map(n=>`
+    <div class="topic">
+      <span class="tag">${escapeHTML(n.subject)}</span>
+      <h3>${escapeHTML(n.title)}</h3>
+      <p>${escapeHTML(n.description)}</p>
+      <details><summary>Read notes</summary><p>${escapeHTML(n.content).replace(/\n/g,'<br>')}</p></details>
+    </div>`).join('') : '<p>No matching notes found.</p>';
+}
+
+function renderCases() {
+  const list=document.getElementById('casesList');
+  if(!list) return;
+  const search=(document.getElementById('searchCases').value||'').toLowerCase();
+  const cases=window.STUDYPOCKET_CONTENT?.cases||[];
+  const filtered=cases.filter(c=>(c.name+' '+c.principle+' '+c.facts).toLowerCase().includes(search));
+  list.innerHTML=filtered.length ? filtered.map(c=>`
+    <div class="case-card">
+      <h3>${escapeHTML(c.name)}</h3>
+      <p><strong>Facts:</strong> ${escapeHTML(c.facts)}</p>
+      <p><strong>Principle:</strong> ${escapeHTML(c.principle)}</p>
+    </div>`).join('') : '<p>No matching cases found.</p>';
+}
+
+function renderQuiz() {
+  const list=document.getElementById('quizList');
+  const questions=window.STUDYPOCKET_CONTENT?.quizzes||[];
+  list.innerHTML=questions.map((q,i)=>`
+    <div class="card" style="margin-bottom:15px">
+      <strong>Question ${i+1}</strong>
+      <p>${escapeHTML(q.question)}</p>
+      ${q.options.map((o,j)=>`<button class="quiz-option" onclick="answerQuiz(${i},${j},this)">${escapeHTML(o)}</button>`).join('')}
+      <p id="quiz-feedback-${i}" class="small"></p>
+    </div>`).join('');
+}
+
+function answerQuiz(i,j,button) {
+  const q=window.STUDYPOCKET_CONTENT.quizzes[i];
+  const feedback=document.getElementById('quiz-feedback-'+i);
+  if(feedback.dataset.answered) return;
+  feedback.dataset.answered='yes';
+  feedback.innerHTML=(j===q.answer?'Correct! ':'Not quite. ')+escapeHTML(q.explanation);
+}
+
+function escapeHTML(value) {
+  return String(value??'').replace(/[&<>"']/g,c=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  })[c]);
+}
+
+let tasks=JSON.parse(localStorage.getItem('studypocket-tasks')||'[]');
+
+function saveTasks() {
+  localStorage.setItem('studypocket-tasks',JSON.stringify(tasks));
+  renderTasks();
+}
+function renderTasks() {
+  document.getElementById('taskList').innerHTML=tasks.map((t,i)=>`
+    <div class="task">
+      <input type="checkbox" ${t.done?'checked':''} onchange="toggleTask(${i})">
+      <span style="${t.done?'text-decoration:line-through;color:#888':''}">${escapeHTML(t.text)}</span>
+      <button onclick="deleteTask(${i})">Delete</button>
+    </div>`).join('');
+}
+function addTask() {
+  const input=document.getElementById('taskInput');
+  if(!input.value.trim()) return;
+  tasks.push({text:input.value.trim(),done:false});
+  input.value='';
+  saveTasks();
+}
+function toggleTask(i) { tasks[i].done=!tasks[i].done; saveTasks(); }
+function deleteTask(i) { tasks.splice(i,1); saveTasks(); }
+function clearCompleted() { tasks=tasks.filter(t=>!t.done); saveTasks(); }
+function clearAllTasks() {
+  if(confirm('Delete all your revision tasks?')) { tasks=[]; saveTasks(); }
+}
+
+function addGradeRow() {
+  const row=document.createElement('div');
+  row.className='grade-row grid';
+  row.style='grid-template-columns:2fr 1fr;gap:10px';
+  row.innerHTML='<input type="number" step="0.01" min="0" max="4" placeholder="Grade point"><input type="number" step="1" min="1" placeholder="Credit hours">';
+  document.getElementById('gradeRows').appendChild(row);
+}
+function calculateCGPA() {
+  let total=0,credits=0;
+  document.querySelectorAll('.grade-row').forEach(row=>{
+    const inputs=row.querySelectorAll('input');
+    const point=Number(inputs[0].value);
+    const credit=Number(inputs[1].value);
+    if(inputs[0].value!==''&&inputs[1].value!==''&&point>=0&&point<=4&&credit>0) {
+      total+=point*credit; credits+=credit;
+    }
+  });
+  document.getElementById('cgpaResult').textContent=credits?
+    'Your GPA: '+(total/credits).toFixed(2):'Please enter valid grade points and credit hours.';
+}
+
+renderNotes();
+renderCases();
+renderQuiz();
+renderTasks();
+</script>
+</body>
+</html>
